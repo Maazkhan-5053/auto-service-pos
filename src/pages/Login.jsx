@@ -67,7 +67,7 @@ export default function Login() {
           </button>
         </form>
 
-        <div className="mt-6 pt-5 border-t border-slate-200">
+        {/* <div className="mt-6 pt-5 border-t border-slate-200">
           <p className="text-xs text-slate-400 mb-2">Demo accounts (click to fill):</p>
           <div className="grid grid-cols-2 gap-2">
             {DEMO_ACCOUNTS.map((acc) => (
@@ -81,7 +81,7 @@ export default function Login() {
               </button>
             ))}
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );
