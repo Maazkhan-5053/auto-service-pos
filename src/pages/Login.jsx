@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useAuth } from '../context/AuthContext';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 const DEMO_ACCOUNTS = [
   { role: 'Admin', username: 'admin', password: 'admin123' },
@@ -66,6 +66,13 @@ export default function Login() {
             Log In
           </button>
         </form>
+
+        <p className="text-center text-sm text-slate-500 mt-5">
+          Don't have an account?{' '}
+          <Link to="/register" className="text-accent-600 font-medium hover:underline">
+            Register
+          </Link>
+        </p>
 
         {/* <div className="mt-6 pt-5 border-t border-slate-200">
           <p className="text-xs text-slate-400 mb-2">Demo accounts (click to fill):</p>

@@ -5,6 +5,7 @@ import Sidebar from './components/Sidebar';
 import ProtectedRoute from './components/ProtectedRoute';
 
 import Login from './pages/Login';
+import Register from './pages/Register';
 import Dashboard from './pages/Dashboard';
 import POS from './pages/POS';
 import WorkOrders from './pages/WorkOrders';
@@ -23,6 +24,7 @@ export default function App() {
   if (!currentUser) {
     return (
       <Routes>
+        <Route path="/register" element={<Register />} />
         <Route path="*" element={<Login />} />
       </Routes>
     );

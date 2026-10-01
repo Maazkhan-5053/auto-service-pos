@@ -44,6 +44,18 @@ export function AuthProvider({ children }) {
     return { ok: false, error: 'Invalid username or password' };
   };
 
+  const register = ({ name, username, password, role }) => {
+    const cleanName = name.trim();
+    const cleanUser = username.trim();
+    if (users.some((u) => u.username.toLowerCase() === cleanUser.toLowerCase())) {
+      return { ok: false, error: 'That username is already taken' };
+    }
+    const newUser = { id: 'u' + Date.now(), name: cleanName, username: cleanUser, password, role };
+    setUsers((prev) => [...prev, newUser]);
+    setCurrentUser(newUser); // sign them in straight away
+    return { ok: true };
+  };
+
   const logout = () => setCurrentUser(null);
 
   const can = (section) => {
@@ -67,7 +79,7 @@ export function AuthProvider({ children }) {
 
   return (
     <AuthContext.Provider
-      value={{ currentUser, users, mechanics, login, logout, can, addEmployee, updateEmployee, removeEmployee }}
+      value={{ currentUser, users, mechanics, login, register, logout, can, addEmployee, updateEmployee, removeEmployee }}
     >
       {children}
     </AuthContext.Provider>
